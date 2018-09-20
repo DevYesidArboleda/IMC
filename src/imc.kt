@@ -1,6 +1,6 @@
 fun main(arg: Array<String>){
 
-    val operaciones= Operaciones(75, 1.75F, 0F)
+    val operaciones= Operaciones(45, 1.75F, 0F)
     println(operaciones.calcular())
     println(operaciones.Imprirmir())
 
@@ -14,6 +14,40 @@ class Operaciones(val peso :Int, val altura :Float, var imc : Float){
         return this.imc
     }
     fun Imprirmir():String{
+
+        //se puede realizar por el metodo when de la siguiente manera
+
+        when(imc){
+            in 1..16 ->{
+                return "Usted posee degaldez severa"
+            }
+            in 16.1..16.99 ->{
+                return "Usted posee degaldez moderada"
+            }
+            in 17.0..18.0 ->{
+                return "Usted posee degaldez aceptable"
+            }
+            in 18.1..24.99 ->{
+                return "Usted posee un peso normal"
+            }
+            in 25.0 .. 29.99 -> {
+                return  "Usted posee sobrepeso "
+            }
+            in 30.0 .. 34.99-> {
+                return "Usted posee sobrepeso tipo 1"
+            }
+            in 35.0 .. 39.99 ->{
+                return "Usted posee sobrepeso tipo 2"
+            }
+            in 40 .. 100->{
+                return "Usted posee sobrepesotipo 3 "
+            }
+        }
+
+        //En su defecto tambien se puede seralizar por el metodo if de una forma sencilla (para utilizar este metodo quitar los comentarios)
+
+
+        /*
         if (imc<=16){
             return "Usted posee degaldez severa"
         }
@@ -38,6 +72,7 @@ class Operaciones(val peso :Int, val altura :Float, var imc : Float){
         if (imc>=40){
             return "Usted posee sobrepeso Tipo 3"
         }
+        */
 
         return ""
     }
